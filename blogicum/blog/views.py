@@ -155,8 +155,6 @@ def create_post(request):
     if form.is_valid() and request.user.is_authenticated:
         post = form.save(commit=False)
         post.author = request.user
-        category = post.category
-        title = post.title
         post.save()
         return redirect('blog:profile', request.user.username)
 
